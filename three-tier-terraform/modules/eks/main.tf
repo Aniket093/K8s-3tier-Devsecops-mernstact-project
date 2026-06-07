@@ -19,7 +19,7 @@ module "eks" {
       min_size     = 1
       max_size     = 3
 
-      instance_types = ["c7i-flex.large"]
+      instance_types = ["t3.small"]
 
       capacity_type = "ON_DEMAND"
     }

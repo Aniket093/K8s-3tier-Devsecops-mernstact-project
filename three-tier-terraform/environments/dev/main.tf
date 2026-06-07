@@ -34,3 +34,14 @@ module "eks" {
 module "ecr" {
   source = "../../modules/ecr"
 }
+
+module "jenkins" {
+  source = "../../modules/jenkins"
+
+  project_name     = "three-tier"
+  vpc_id           = module.vpc.vpc_id
+  public_subnet_id = module.vpc.public_subnets[0]
+  cluster_name     = "three-tier-eks"
+  region           = var.region
+  key_name         = var.jenkins_key_name
+}
